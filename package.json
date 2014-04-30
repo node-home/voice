@@ -1,0 +1,19 @@
+{
+  "name": "voice",
+  "version": "0.0.0",
+  "description": "Voice recognition",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jesse the Game",
+  "license": "BSD",
+  "devDependencies": {
+    "coffee-script": "*"
+  },
+  "dependencies": {
+    "express": "*",
+    "jade": "*",
+    "speakable": "sreuter/node-speakable"
+  }
+}
