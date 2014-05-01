@@ -1,7 +1,9 @@
-{expression, statement} = require '../../src/extensions'
+{expression, statement, grammar} = require '../../src/extensions'
 
 describe 'language', ->
   describe 'expression', ->
+    it 'should validate arguments'
+
     it 'should match strings', ->
       expr = expression 'all good'
       expr.match('all good').should.be.true
@@ -64,13 +66,58 @@ describe 'language', ->
     it 'should reference an intent'
 
   describe 'intent', ->
+    it 'should be fired as an event'
+    it 'should be discoverable'
+    it 'should accept statements'
+    it 'should accept arrays of strings'
 
   describe 'grammar', ->
-    it 'should construct a tree of expressions'
-    it 'should have statements for leaves'
-    it 'should add statements'
+    it 'should accept intents', ->
+      G = grammar
+        intent 'turn lights on', [
+          "it's dark in here"
+          "turn the lights on"
+        ]
+      G.match("it's dark in here").should.eql 'turn the lights on'
+      G.match("Could you turn the lights on").should.eql 'turn the lights on'
+
+    it 'should accept objects with strings', ->
+      G = grammar
+        'order pizza': [
+          "I'm hungry"
+          "pizza"
+        ]
+      G.match("I'm hungry").should.eql 'pizza'
+      G.match("I really feel like eating pizza").should.eql 'pizza'
+      (null == G.match("I'm thirsty")).should.be.true
+
+    it 'should add statements', ->
+      G.teach 'play music': ["dj take it away"]
+      G.match('dj take it away').should.eql 'play music'
+      (null == G.match('dj keep it here')).should.be.true
+
+    it 'should update statements', ->
+      G.teach 'play music': ["music please"]
+      G.match('dj take it away').should.eql 'play music'
+      G.match('dj take it away').should.eql 'play music'
+      (null == G.match('dj keep it here')).should.be.true
+
     it 'should remove statements'
-    it 'should match strings'
+      G.forget 'play music'
+      (null == G.match('dj take it away')).should.be.true
+
+      G.forget 'order pizza': ["I'm hungry"]
+      G.match('pizza').should.eql 'pizza'
+      (null == G.match("I'm hungry"()).should.be.true
+
     it 'should give precedence to non-wildcards'
     it 'should consider all paths with wildcards before failing'
     it 'should dispatch intents'
+
+  decribe 'captures', ->
+    it 'should support numbers'
+    it 'should support dates'
+    it 'should support times'
+    it 'should support datetimes'
+    it 'should support options'
+    it 'should support booleans'
