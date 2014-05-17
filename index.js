@@ -1,3 +1,3 @@
 require('coffee-script/register');
-require('./voice');
+require('./src');
 

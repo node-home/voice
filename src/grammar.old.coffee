@@ -29,6 +29,7 @@ class @Grammar
           console.log "CASE 1", word, current[word]
           current = current[word]
         when word and current['*']
+          null
         when current['']
           console.log "CASE 2", word, current['']
           return current[''] words

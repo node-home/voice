@@ -1,19 +1,22 @@
 {
-  "name": "voice",
+  "name": "home.voice",
   "version": "0.0.0",
-  "description": "Voice recognition",
+  "description": "Home Voice",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "make test"
   },
   "author": "Jesse the Game",
   "license": "BSD",
   "devDependencies": {
+    "mocha": "*",
+    "should": "*",
     "coffee-script": "*"
   },
   "dependencies": {
     "express": "*",
     "jade": "*",
+    "lodash": "*",
     "speakable": "sreuter/node-speakable"
   }
 }

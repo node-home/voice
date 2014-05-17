@@ -1,2 +1,0 @@
-vocabulary = (identifier, options) ->
-  key:
