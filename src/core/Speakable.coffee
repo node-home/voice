@@ -16,7 +16,7 @@ class Speakable extends events.EventEmitter
     @recRunning = false
     @apiResult = {}
     @apiLang = options.lang ? "en-US"
-    @cmd = __dirname + '/sox'
+    @cmd = __dirname + '/Speakable.sox'
     @cmdArgs = [
       '-b', '16',
       '-d', '-t', 'flac', '-',
@@ -29,7 +29,7 @@ module.exports = Speakable
 Speakable.prototype.postVoiceData = ->
   options =
     hostname: 'www.google.com'
-    path: "/speech-api/v1/recognize?xjerr=1&client=chromium&pfilter=0&maxresults=1&lang=#{@apiLang}"
+    path: "/speech-api/v2/recognize?xjerr=1&client=chromium&pfilter=0&maxresults=1&lang=#{@apiLang}"
     method: 'POST'
     headers:
       'Content-type': "audio/x-flac; rate=#{@rate}"

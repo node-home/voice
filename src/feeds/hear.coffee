@@ -15,12 +15,12 @@ flow.sink 'hear',
 
         Return a function that takes a phrase and an optional source.
       """
-  , ({grammar}) ->
-    ({phrase, source}) ->
-      {intent, args} = grammar.parse phrase
-      flow.hub.emit 'intent', intent, args if intent
+, ({grammar}) ->
+  ({phrase, source}) ->
+    {intent, args} = grammar.parse phrase
+    flow.hub.emit 'intent', intent, args if intent
 
-flow.endpoint 'hear',
+flow.action 'hear',
   name: 'Hear'
   params:
     statement:

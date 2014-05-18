@@ -17,6 +17,7 @@
     "express": "*",
     "jade": "*",
     "lodash": "*",
-    "speakable": "sreuter/node-speakable"
+    "speakable": "sreuter/node-speakable",
+    "say": "^0.5.0"
   }
 }

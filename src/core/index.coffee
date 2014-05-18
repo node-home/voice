@@ -1,2 +1,4 @@
 module.exports =
-  Grammar: require './Grammar'
+  Voice:     require './Voice'
+  Grammar:   require './Grammar'
+  Speakable: require './Speakable'
