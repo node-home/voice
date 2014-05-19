@@ -11,6 +11,7 @@ module.exports = home.app module,
   , (app) ->
     app.feeds = require './feeds'
     app.models = require './models'
+    app.sinks = require './sinks'
 
     app.bus = bus = new events.EventEmitter
     app.grammar = new core.Grammar
