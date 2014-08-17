@@ -37,7 +37,7 @@ describe 'language', ->
     it 'should capture matches'
 
     it 'should combine a series of expressions', ->
-      part = expression ['options', 'choice']
+      part = expression ['options', 'choices']
 
       expr = expression [
         'one of'
