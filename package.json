@@ -9,9 +9,12 @@
   "author": "Jesse the Game",
   "license": "BSD",
   "devDependencies": {
+    "coffee-script": "*",
+    "dotenv": "^0.4.0",
+    "futures": "^2.3.3",
     "mocha": "*",
-    "should": "*",
-    "coffee-script": "*"
+    "q": "^1.0.1",
+    "should": "*"
   },
   "dependencies": {
     "express": "*",

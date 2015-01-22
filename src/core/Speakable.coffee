@@ -7,7 +7,7 @@ class Speakable extends events.EventEmitter
   constructor: (options) ->
     super()
 
-    options = opSpeakabletions ? {}
+    options ?= {}
 
     @rate = options.rate ? 16000
     @threshold = options.threshold ? 0.1
